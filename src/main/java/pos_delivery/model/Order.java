@@ -1,5 +1,7 @@
 package pos_delivery.model;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,26 +10,19 @@ import java.util.List;
  * Order Consists Of Quantity and Menu.
  * Each Order Can Have Special Instruction Details.
  */
-public class Order {
+@Entity @Table(name = "ORDERS")
+public class Order implements Serializable {
 
-    /**
-     * Customer Assoicated With Order
-     **/
+    /** Customer Assoicated With Order **/
     private Customer customer;
 
-    /**
-     * Menu Associated With Order
-     **/
+    /** Menu Associated With Order **/
     private Menu menu;
 
-    /**
-     * Quantity Of Menu That Customer Ordering
-     **/
+    /** Quantity Of Menu That Customer Ordering **/
     private int quantity;
 
-    /**
-     * Any Special Instruction On The Order
-     **/
+    /** Any Special Instruction On The Order **/
     private List<String> details;
 
     /**
@@ -35,9 +30,7 @@ public class Order {
      * Order Requires Customer And Menu.
      * Each Order Initialized With Empty List Of Special Instruction And Zero Quantity.
      */
-    public Order() {
-    }
-
+    public Order() {}
     public Order(Customer customer, Menu menu) {
         this.customer = customer;
         this.menu = menu;
@@ -45,37 +38,21 @@ public class Order {
         this.details = new ArrayList<>();
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
+    @Id @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "CUSTOMER")
+    public Customer getCustomer() { return customer; }
+    public void setCustomer(Customer customer) { this.customer = customer; }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+    @Id @ManyToOne(fetch = FetchType.LAZY)
+    public Menu getMenu() { return menu; }
+    public void setMenu(Menu menu) { this.menu = menu; }
 
-    public Menu getMenu() {
-        return menu;
-    }
+    @Column(name = "QUANTITY")
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public List<String> getDetails() {
-        return details;
-    }
-
-    public void setDetails(List<String> details) {
-        this.details = details;
-    }
+    @ElementCollection(fetch = FetchType.EAGER) @Column(name = "DETAILS")
+    public List<String> getDetails() { return details; }
+    public void setDetails(List<String> details) { this.details = details; }
 
     @Override
     public boolean equals(Object o) {

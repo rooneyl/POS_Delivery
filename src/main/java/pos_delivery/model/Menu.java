@@ -1,113 +1,71 @@
 package pos_delivery.model;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * Menu Entity Represent Menu Items.
+ * Two Primary Key Is Used. UID For General Identifier.
+ * Name ID To Grab Menu Name Without Loading The Whole Menu From DB.
  */
-public class Menu {
+@Entity @Table(name = "MENUS")
+public class Menu implements Serializable {
 
-    /**
-     * Uid is Unique Identifier of Menu
-     **/
+    /** Uid is Unique Identifier of Menu **/
     private int uid;
 
-    /**
-     * Name Of Menu
-     **/
+    /** Name Of Menu **/
     private String name;
 
-    /**
-     * Decription Is Used To Represent Name In UI
-     **/
+    /** Decription Is Used To Represent Name In UI **/
     private String description;
 
-    /**
-     * Category Of Menu
-     **/
+    /** Category Of Menu **/
     private Category category;
 
-    /**
-     * Printer That Need To Print When Order Is Placed
-     **/
+    /** Printer That Need To Print When Order Is Placed **/
     private String printer;
 
-    /**
-     * Menu Gets Invalid When It is Deleted
-     **/
+    /** Menu Gets Invalid When It is Deleted **/
     private boolean valid;
 
-    /**
-     * Position Of Menu Button On POS Application
-     **/
+    /** Position Of Menu Button On POS Application **/
     private int position;
 
-    /**
-     * Color Of Menu Button On POS Application For UI
-     **/
+    /** Color Of Menu Button On POS Application For UI **/
     private String color;
 
-    public int getUid() {
-        return uid;
-    }
+    @Id @GeneratedValue @Column(name = "UID")
+    public int getUid() { return uid; }
+    public void setUid(int uid) { this.uid = uid; }
 
-    public void setUid(int uid) {
-        this.uid = uid;
-    }
+    @Id @Column(name = "NAME")
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public String getName() {
-        return name;
-    }
+    @Column(name = "DESCRIPTION")
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @Enumerated(EnumType.STRING) @Column(name = "CATEGORY")
+    public Category getCategory() { return category; }
+    public void setCategory(Category category) { this.category = category; }
 
-    public String getDescription() {
-        return description;
-    }
+    @Column(name = "PRINTER")
+    public String getPrinter() { return printer; }
+    public void setPrinter(String printer) { this.printer = printer; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    @Column(name = "VALID")
+    public boolean isValid() { return valid; }
+    public void setValid(boolean valid) { this.valid = valid; }
 
-    public Category getCategory() {
-        return category;
-    }
+    @Column(name = "POSITION")
+    public int getPosition() { return position; }
+    public void setPosition(int position) { this.position = position; }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public String getPrinter() {
-        return printer;
-    }
-
-    public void setPrinter(String printer) {
-        this.printer = printer;
-    }
-
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
-    public int getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
+    @Column(name = "COLOR")
+    public String getColor() { return color; }
+    public void setColor(String color) { this.color = color; }
 
     @Override
     public boolean equals(Object o) {

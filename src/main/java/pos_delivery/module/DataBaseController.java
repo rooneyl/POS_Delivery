@@ -1,10 +1,13 @@
 package pos_delivery.module;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import pos_delivery.model.Customer;
+import pos_delivery.model.Menu;
 
 public class DataBaseController {
     private static DataBaseController dataBaseController = null;
@@ -42,5 +45,29 @@ public class DataBaseController {
         sessionFactory.close();
         StandardServiceRegistryBuilder.destroy(registry);
         dataBaseController = null;
+    }
+
+    public void saveOrder(Customer customer) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(customer);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void deleteOrder(Customer customer) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(customer);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void createMenu(Menu menu) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(menu);
+        session.getTransaction().commit();
+        session.close();
     }
 }

@@ -10,9 +10,11 @@ import pos_delivery.model.Customer;
 import pos_delivery.model.Menu;
 import pos_delivery.model.Order;
 
+import java.sql.Date;
 import java.util.List;
 
 public class DataBaseController {
+
     private static DataBaseController dataBaseController = null;
     private StandardServiceRegistry registry;
     private SessionFactory sessionFactory;
@@ -50,6 +52,15 @@ public class DataBaseController {
         dataBaseController = null;
     }
 
+    /***************************************************************************
+     *                                                                         *
+     * Customer                                                                *
+     *                                                                         *
+     **************************************************************************/
+
+    /**
+     * Store Customer in DB, Customer Includes List of Orders
+     */
     public void saveOrder(Customer customer) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -58,6 +69,31 @@ public class DataBaseController {
         session.close();
     }
 
+    /**
+     * Retrieve List of Customer within Given Dates
+     *
+     * @param startDate Starting Date
+     * @param endDate   Ending Date
+     */
+    public List<Customer> retrieveOrder(Date startDate, Date endDate) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        List<Customer> customers = session
+                .createQuery("FROM Customer WHERE DATE BETWEEN :startDate AND :endDate ", Customer.class)
+                .setParameter("startDate", startDate)
+                .setParameter("endDate", endDate)
+                .list();
+        session.getTransaction().commit();
+        session.close();
+
+        return customers;
+    }
+
+    /**
+     * Retrieve List of Orders Associated with Customer
+     *
+     * @param customer Associated Customer
+     */
     public List<Order> retrieveOrderDetail(Customer customer) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -71,6 +107,9 @@ public class DataBaseController {
         return orders;
     }
 
+    /**
+     * Delete Customer from DB
+     */
     public void deleteOrder(Customer customer) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -79,6 +118,15 @@ public class DataBaseController {
         session.close();
     }
 
+    /***************************************************************************
+     *                                                                         *
+     * Menu                                                                    *
+     *                                                                         *
+     **************************************************************************/
+
+    /**
+     * Store Menu in DB
+     */
     public void createMenu(Menu menu) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -87,14 +135,9 @@ public class DataBaseController {
         session.close();
     }
 
-    public void updateMenu(Menu menu) {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.update(menu);
-        session.getTransaction().commit();
-        session.close();
-    }
-
+    /**
+     * Retrieve All Menus from DB
+     */
     public List<Menu> retrieveMenu() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -102,5 +145,16 @@ public class DataBaseController {
         session.getTransaction().commit();
         session.close();
         return result;
+    }
+
+    /**
+     * Update existing Menu
+     */
+    public void updateMenu(Menu menu) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.update(menu);
+        session.getTransaction().commit();
+        session.close();
     }
 }

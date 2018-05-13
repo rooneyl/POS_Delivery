@@ -8,6 +8,9 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import pos_delivery.model.Customer;
 import pos_delivery.model.Menu;
+import pos_delivery.model.Order;
+
+import java.util.List;
 
 public class DataBaseController {
     private static DataBaseController dataBaseController = null;
@@ -55,6 +58,19 @@ public class DataBaseController {
         session.close();
     }
 
+    public List<Order> retrieveOrderDetail(Customer customer) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        List<Order> orders = session
+                .createQuery("FROM Order WHERE CUSTOMER = :orderNumber", Order.class)
+                .setParameter("orderNumber", customer.getOrderNumber())
+                .list();
+        session.getTransaction().commit();
+        session.close();
+
+        return orders;
+    }
+
     public void deleteOrder(Customer customer) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
@@ -69,5 +85,22 @@ public class DataBaseController {
         session.save(menu);
         session.getTransaction().commit();
         session.close();
+    }
+
+    public void updateMenu(Menu menu) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.update(menu);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public List<Menu> retrieveMenu() {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        List<Menu> result = session.createQuery("FROM Menu", Menu.class).list();
+        session.getTransaction().commit();
+        session.close();
+        return result;
     }
 }

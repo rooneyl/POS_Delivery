@@ -1,5 +1,6 @@
 package pos_delivery.model;
 
+import pos_delivery.module.PrinterService;
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -24,7 +25,7 @@ public class Menu implements Serializable {
     private Category category;
 
     /** Printer That Need To Print When Order Is Placed **/
-    private String printer;
+    private PrinterService.Printer printer;
 
     /** Menu Gets Invalid When It is Deleted **/
     private boolean valid;
@@ -51,9 +52,9 @@ public class Menu implements Serializable {
     public Category getCategory() { return category; }
     public void setCategory(Category category) { this.category = category; }
 
-    @Column(name = "PRINTER")
-    public String getPrinter() { return printer; }
-    public void setPrinter(String printer) { this.printer = printer; }
+    @Enumerated(EnumType.STRING) @Column(name = "PRINTER")
+    public PrinterService.Printer getPrinter() { return printer; }
+    public void setPrinter(PrinterService.Printer printer) { this.printer = printer; }
 
     @Column(name = "VALID")
     public boolean isValid() { return valid; }

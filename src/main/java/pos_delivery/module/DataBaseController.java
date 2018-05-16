@@ -13,7 +13,7 @@ import pos_delivery.model.Order;
 import java.sql.Date;
 import java.util.List;
 
-public class DataBaseController {
+public final class DataBaseController {
 
     private static DataBaseController dataBaseController = null;
     private StandardServiceRegistry registry;
@@ -127,7 +127,7 @@ public class DataBaseController {
     /**
      * Store Menu in DB
      */
-    public void createMenu(Menu menu) {
+    void createMenu(Menu menu) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.save(menu);
@@ -138,7 +138,7 @@ public class DataBaseController {
     /**
      * Retrieve All Menus from DB
      */
-    public List<Menu> retrieveMenu() {
+    List<Menu> retrieveMenu() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         List<Menu> result = session.createQuery("FROM Menu", Menu.class).list();
@@ -150,7 +150,7 @@ public class DataBaseController {
     /**
      * Update existing Menu
      */
-    public void updateMenu(Menu menu) {
+    void updateMenu(Menu menu) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.update(menu);

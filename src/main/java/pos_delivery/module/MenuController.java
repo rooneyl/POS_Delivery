@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class MenuController {
+public final class MenuController {
 
     private static MenuController menuController = null;
     private Map<Category, List<Menu>> menus;
@@ -31,5 +31,49 @@ public class MenuController {
         if (menuController == null)
             menuController = new MenuController();
         return menuController;
+    }
+
+    /**
+     * Return All the Valid Menus in a Category.
+     */
+    public List<Menu> getMenus(Category category) {
+        return menus.get(category);
+    }
+
+    /**
+     * Delete Menu in the Map and Mark the Menu as Invalid.
+     * Deleted Menu also reflected in DB.
+     */
+    public void deleteMenu(final Menu menu) {
+        menus.get(menu.getCategory()).stream()
+                .filter(m -> m.equals(menu))
+                .findFirst()
+                .ifPresent(m -> {
+                    m.setValid(false);
+                    DataBaseController.getInstance().updateMenu(m);
+                });
+    }
+
+    /**
+     * Add Menu in the Map and Store in DB.
+     */
+    public void createMenu(final Menu menu) {
+        menus.get(menu.getCategory()).add(menu);
+        DataBaseController.getInstance().createMenu(menu);
+    }
+
+    /**
+     * Update Existing Menu.
+     */
+    public void updateMenu(final Menu menu) {
+        List<Menu> menuList = menus.get(menu.getCategory());
+        menuList.stream()
+                .filter(m -> m.equals(menu))
+                .findFirst()
+                .ifPresent(m -> {
+                    menuList.remove(m);
+                    menuList.add(menu);
+                    DataBaseController.getInstance().updateMenu(menu);
+                });
     }
 }

@@ -1,0 +1,187 @@
+description=miso, description=Miso, category=APPETIZER, options=[], printer=NO_PRINTER, valid=true, position=31, color=#ffffff
+description=green salad, description=Green\nSalad, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=10, color=#90ee90
+description=seafood salad, description=Seafood\nSalad, category=APPETIZER, options=[], printer=SASHIMI_KITCHEN, valid=true, position=11, color=#90ee90
+description=aria sashimi salad, description=Aria Sashimi\nSalad, category=APPETIZER, options=[], printer=SASHIMI_KITCHEN, valid=true, position=12, color=#90ee90
+description=wakame, description=Wakame, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=7, color=#ffffff
+description=vege sunomono, description=Vege\nSunomono, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=27, color=#ffffff
+description=ebi sunomono, description=Ebi\nSunomono, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=25, color=#ffffff
+description=tako sunomono, description=Tako\nSunomono, category=APPETIZER, options=[], printer=SASHIMI_KITCHEN, valid=true, position=28, color=#ffffff
+description=seafood sunomono, description=Seafood\nSunomono, category=APPETIZER, options=[], printer=SASHIMI_KITCHEN, valid=true, position=26, color=#ffffff
+description=gomae, description=Gomae, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=8, color=#ffffff
+description=tuna gomae, description=Tuna Gomae, category=APPETIZER, options=[], printer=SASHIMI_KITCHEN, valid=true, position=9, color=#ffffff
+description=croquette, description=Croquette, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=16, color=#ffffff
+description=edamame, description=Edamame, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=19, color=#ffffff
+description=takoyaki, description=Takoyaki, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=17, color=#ffffff
+description=tako wasabi, description=Tako Wasabi, category=APPETIZER, options=[], printer=ROLL, valid=true, position=21, color=#ffffff
+description=agedashi tofu, description=Agedashi\nTofu, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=1, color=#ffffff
+description=spicy agedashi tofu, description=Spicy Agedashi\nTofu, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=2, color=#ff6347
+description=chicken karage, description=Chicken\nKarage, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=14, color=#deb887
+description=salmon karage, description=Salmon\nKarage, category=APPETIZER, options=[], printer=SASHIMI_KITCHEN, valid=true, position=15, color=#deb887
+description=ika karage, description=Ika\nKarage, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=13, color=#deb887
+description=gyoza, description=Gyoza, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=3, color=#ffffff
+description=fried oysters, description=Fried\nOysters, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=20, color=#ffffff
+description=ebi mayo, description=Ebi\nMayo, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=5, color=#ffffff
+description=ebi gyoza, description=Ebi\nGyoza, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=4, color=#ffffff
+description=soft shell crab, description=Soft Shell\nCrab, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=22, color=#ffffff
+description=tuna tataki, description=Tuna\nTataki, category=APPETIZER, options=[], printer=SASHIMI, valid=true, position=34, color=#ffffff
+description=salmon tataki, description=Salmon\nTataki, category=APPETIZER, options=[], printer=SASHIMI, valid=true, position=35, color=#ffffff
+description=rice, description=Rice, category=APPETIZER, options=[], printer=KITCHEN, valid=true, position=39, color=#ffffff
+description=house spicy sauce, description=House\nSpicy\nSauce, category=APPETIZER, options=[], printer=SASHIMI, valid=true, position=40, color=#ff6347
+description=chicken teriyaki, description=Chicken\nTeriyaki, category=ENTREE, options=[], printer=KITCHEN, valid=true, position=1, color=#d2b48c
+description=beef teriyaki, description=Beef\nTeriyaki, category=ENTREE, options=[], printer=KITCHEN, valid=true, position=2, color=#d2b48c
+description=tofu teriyaki, description=Tofu\nTeriyaki, category=ENTREE, options=[], printer=KITCHEN, valid=true, position=4, color=#d2b48c
+description=salmon teriyaki, description=Salmon\nTeriyaki, category=ENTREE, options=[], printer=SASHIMI_KITCHEN, valid=true, position=3, color=#d2b48c
+description=chicken katsu, description=Chicken Katsu, category=ENTREE, options=[], printer=KITCHEN, valid=true, position=7, color=#d2b48c
+description=ton katsu, description=Ton Katsu, category=ENTREE, options=[], printer=KITCHEN, valid=true, position=8, color=#d2b48c
+description=vegetable tempura, description=Vegetable\nTempura, category=TEMPURA, options=[], printer=KITCHEN, valid=true, position=7, color=#ffffff
+description=sweet potato tempura, description=Sweet Potato\nTempura, category=TEMPURA, options=[], printer=KITCHEN, valid=true, position=3, color=#ffffff
+description=prawn tempura, description=Prawn\nTempura, category=TEMPURA, options=[], printer=KITCHEN, valid=true, position=2, color=#ffffff
+description=P/S tempura, description=P/S\nTempura, category=TEMPURA, options=[], printer=KITCHEN, valid=true, position=4, color=#ffffff
+description=assorted tempura, description=Assorted\nTempura, category=TEMPURA, options=[], printer=KITCHEN, valid=true, position=1, color=#ffffff
+description=aria deluxe tempura, description=Aria\nDelux\nTempura, category=TEMPURA, options=[], printer=KITCHEN, valid=true, position=13, color=#ffffff
+description=tuna don, description=Tuna\nDon, category=UDON, options=[], printer=SASHIMI, valid=true, position=32, color=#ffffff
+description=salmon don, description=Salmon\nDon, category=UDON, options=[], printer=SASHIMI, valid=true, position=31, color=#ffffff
+description=T/S don, description=T/S\nDon, category=UDON, options=[], printer=SASHIMI, valid=true, position=33, color=#ffffff
+description=spicy tuna don, description=Spicy\nTuna\nDon, category=UDON, options=[], printer=SASHIMI, valid=true, position=38, color=#ff6347
+description=spicy salmon don, description=Spicy\nSalmon\nDon, category=UDON, options=[], printer=SASHIMI, valid=true, position=37, color=#ff6347
+description=spicy T/S don, description=Spicy\nT\S\nDon, category=UDON, options=[], printer=SASHIMI, valid=true, position=39, color=#ff6347
+description=unagi don, description=Unagi\nDon, category=UDON, options=[], printer=SASHIMI_ROLL, valid=true, position=35, color=#a0522d
+description=chirashi don, description=Chirashi\nDon, category=UDON, options=[], printer=SASHIMI, valid=true, position=25, color=#ffffff
+description=deluxe chirashi don, description=Deluxe\nChirashi\nDon, category=UDON, options=[], printer=SASHIMI, valid=true, position=26, color=#ffffff
+description=korean chirashi don, description=Korean\nChirashi\nDon, category=UDON, options=[], printer=SASHIMI_ROLL, valid=true, position=28, color=#ffffff
+description=al bap, description=Al-bap, category=UDON, options=[], printer=KITCHEN, valid=true, position=19, color=#ffffff
+description=katsu don, description=Katsu\nDon, category=UDON, options=[], printer=KITCHEN, valid=true, position=20, color=#ffffff
+description=plain udon, description=Plain\nUdon, category=UDON, options=[], printer=KITCHEN, valid=true, position=1, color=#ffffff
+description=vegetable udon, description=Vegetable\nUdon, category=UDON, options=[], printer=KITCHEN, valid=true, position=4, color=#ffffff
+description=tempura udon, description=Tempura\nUdon, category=UDON, options=[], printer=KITCHEN, valid=true, position=5, color=#ffffff
+description=nabe udon, description=Nabe\nUdon, category=UDON, options=[], printer=KITCHEN, valid=true, position=8, color=#ffffff
+description=seafood nabe udon, description=Seafood\nNabe, category=UDON, options=[], printer=SASHIMI_KITCHEN, valid=true, position=9, color=#ffffff
+description=chicken udon, description=Chicken\nUdon, category=UDON, options=[], printer=KITCHEN, valid=true, position=3, color=#ffffff
+description=beef udon, description=Beef\nUdon, category=UDON, options=[], printer=KITCHEN, valid=true, position=2, color=#ffffff
+description=seafood udon, description=Seafood\nUdon, category=UDON, options=[], printer=KITCHEN, valid=true, position=7, color=#ffffff
+description=nagasaki ramen, description=Nagasaki\nRamen, category=UDON, options=[], printer=KITCHEN, valid=true, position=24, color=#ffffff
+description=kimchi yaki udon, description=Kimchi\nYaki Udon, category=UDON, options=[], printer=KITCHEN, valid=true, position=6, color=#ffffff
+description=chicken yaki udon, description=Chicken\nYaki Udon, category=UDON, options=[], printer=KITCHEN, valid=true, position=14, color=#ffffff
+description=beef yaki udon, description=Beef\nYaki Udon, category=UDON, options=[], printer=KITCHEN, valid=true, position=13, color=#ffffff
+description=seafood yaki udon, description=Seafood\nYaki Udon, category=UDON, options=[], printer=KITCHEN, valid=true, position=15, color=#ffffff
+description=chicken yaki soba, description=Chicken\nYaki Soba, category=UDON, options=[], printer=KITCHEN, valid=true, position=17, color=#ffffff
+description=beef yaki soba, description=Beef\nYaki Soba, category=UDON, options=[], printer=KITCHEN, valid=true, position=16, color=#ffffff
+description=seafood yaki soba, description=Seafood\nYaki Soba, category=UDON, options=[], printer=KITCHEN, valid=true, position=18, color=#ffffff
+description=toro, description=Toro, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=21, color=#ffffff
+description=tamago, description=Tamago, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=18, color=#ffffff
+description=avocado, description=Avocado, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=2, color=#ffffff
+description=hokkigai, description=Hokkigai, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=6, color=#ffffff
+description=inari, description=Inari, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=10, color=#ffffff
+description=tuna, description=Tuna, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=22, color=#ffffff
+description=salmon, description=Salmon, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=13, color=#ffffff
+description=tai, description=Tai, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=16, color=#ffffff
+description=tobiko, description=Tobiko, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=19, color=#ffffff
+description=masago, description=Masago, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=11, color=#ffffff
+description=ebi, description=Ebi, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=4, color=#ffffff
+description=chopped scallop, description=Chopped\nScallop, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=3, color=#ffffff
+description=saba, description=Saba, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=12, color=#ffffff
+description=ika, description=Ika, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=8, color=#ffffff
+description=tobiko quail egg, description=Tobiko\nQuail Egg, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=20, color=#ffffff
+description=wild salmon, description=Wild\nSalmon, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=15, color=#ffffff
+description=smoked salmon, description=Smoked\nSalmon, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=14, color=#ffffff
+description=hotategai, description=Hotategai, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=7, color=#ffffff
+description=tako, description=Tako, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=17, color=#ffffff
+description=ikura, description=Ikura, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=9, color=#ffffff
+description=unagi, description=Unagi, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=23, color=#a0522d
+description=hamachi, description=Hamachi, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=5, color=#ffffff
+description=amaebi, description=Amaebi, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=1, color=#ffffff
+description=aburi salmon, description=Aburi\nSalmon, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=32, color=#ffffff
+description=aburi tuna, description=Aburi\nTuna, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=33, color=#ffffff
+description=aburi saba, description=Aburi\nSaba, category=NIGIRI, options=[], printer=SASHIMI, valid=true, position=31, color=#ffffff
+description=toro oshi, description=Toro\nOshi, category=OSHI, options=[], printer=SASHIMI_KITCHEN, valid=true, position=4, color=#ffffff
+description=salmon oshi, description=Salmon\nOshi, category=OSHI, options=[], printer=SASHIMI, valid=true, position=1, color=#ffffff
+description=spicy tuna oshi, description=Spicy Tuna\nOshi, category=OSHI, options=[], printer=SASHIMI_KITCHEN, valid=true, position=3, color=#ff6347
+description=hotate oshi, description=Hotate\nOshi, category=OSHI, options=[], printer=SASHIMI, valid=true, position=2, color=#ffffff
+description=unagi oshi, description=Unagi\nOshi, category=OSHI, options=[], printer=SASHIMI_KITCHEN, valid=true, position=5, color=#a0522d
+description=saba oshi, description=Saba\nOshi, category=OSHI, options=[], printer=SASHIMI, valid=true, position=8, color=#ffffff
+description=ebi oshi, description=Ebi\nOshi, category=OSHI, options=[], printer=SASHIMI, valid=true, position=7, color=#ffffff
+description=toro sashimi, description=Toro\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=4, color=#ffffff
+description=tuna sashimi, description=Tuna\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=1, color=#ffffff
+description=salmon sashimi, description=Salmon\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=2, color=#ffffff
+description=T/S sashimi, description=T/S\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=3, color=#ffffff
+description=spicy tuna sashimi, description=Spicy\nTuna\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=7, color=#ff6347
+description=spicy salmon sashimi, description=Spicy\nSalmon\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=8, color=#ff6347
+description=spicy T/S sashimi, description=Spicy\nT/S\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=9, color=#ff6347
+description=hokkigai sashimi, description=Hokkigai\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=10, color=#ffffff
+description=amaebi sashimi, description=Amaebi\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=20, color=#ffffff
+description=wild salmon sashimi, description=Wild Salmon\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=5, color=#ffffff
+description=tako sashimi, description=Tako\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=19, color=#ffffff
+description=hamachi sashimi, description=Hamachi\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=21, color=#ffffff
+description=assorted sashimi, description=Assorted\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=25, color=#ffffff
+description=deluxe sashimi, description=Deluxe\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=26, color=#ffffff
+description=aria special sashimi, description=Aria Special\nSashimi, category=SASHIMI, options=[], printer=SASHIMI, valid=true, position=27, color=#ffffff
+description=tuna roll, description=Tuna\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=36, color=#ffffff
+description=salmon roll, description=Salmon\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=25, color=#ffffff
+description=kappa roll, description=Kappa\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=19, color=#ffffff
+description=asparagus roll, description=Asparagus\nRoll, category=ROLL, options=[], printer=ROLL_KITCHEN, valid=true, position=2, color=#ffffff
+description=oshinko roll, description=Oshinko\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=22, color=#ffffff
+description=tamago roll, description=Tamago\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=34, color=#ffff00
+description=wild salmon roll, description=Wild salmon\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=27, color=#ffffff
+description=negihama roll, description=Negihama\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=20, color=#ffffff
+description=negitoro roll, description=Negitoro\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=21, color=#ffffff
+description=avocado roll, description=Avocado\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=4, color=#2e8b57
+description=california roll, description=California\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=8, color=#f4a460
+description=spicy salmon roll, description=Spicy Salmon\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=29, color=#ff6347
+description=bc roll, description=BC\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=5, color=#ffffff
+description=vegetable roll, description=Vegetable\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=39, color=#ffffff
+description=vegetable tempura roll, description=Vegetable\nTempura\nRoll, category=ROLL, options=[], printer=ROLL_KITCHEN, valid=true, position=40, color=#ffffff
+description=spicy tuna roll, description=Spicy Tuna\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=31, color=#ff6347
+description=crunch spicy tuna roll, description=Crunch\nSpicy Tuna\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=11, color=#ff6347
+description=tuna w avocado roll, description=Tuna\nw Avocado\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=35, color=#ffffff
+description=salmon w avocado roll, description=Salmon\nw Avocado\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=24, color=#ffffff
+description=chopped scallop roll, description=Chopped\nScallop\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=10, color=#ffffff
+description=spicy chop roll, description=Spicy Chop\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=28, color=#ff6347
+description=avocado w cheese roll, description=Avocado\nw Cheese\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=3, color=#ffffff
+description=deep california roll, description=Deep California\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=12, color=#ffffff
+description=spicy wild salmon roll, description=Spicy Wild\nSalmon\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=30, color=#ff6347
+description=sp tuna tempura roll, description=Spicy Tuna\nTempura\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=32, color=#ffffff
+description=deep fried roll, description=Deep Fried\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=13, color=#ffffff
+description=chicken teriyaki roll, description=Chicken\nTeriyaki\nRoll, category=ROLL, options=[], printer=ROLL_KITCHEN, valid=true, position=9, color=#ffffff
+description=beef teriyaki roll, description=Beef Teriyaki\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=6, color=#ffffff
+description=sweet potato roll, description=Sweet Potato\nRoll, category=ROLL, options=[], printer=ROLL_KITCHEN, valid=true, position=33, color=#ffffff
+description=pumpkin roll, description=Pumpkin\nRoll, category=ROLL, options=[], printer=ROLL_KITCHEN, valid=true, position=42, color=#2e8b57
+description=unagi roll, description=Unagi\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=38, color=#a0522d
+description=dynamite roll, description=Dynamite\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=14, color=#f4a460
+description=ikamite roll, description=Ikamite\nRoll, category=ROLL, options=[], printer=ROLL_KITCHEN, valid=true, position=18, color=#ffffff
+description=alaska roll, description=Alaska\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=1, color=#ffffff
+description=bills roll, description=Bills\nRoll, category=ROLL, options=[], printer=ROLL_KITCHEN, valid=true, position=7, color=#ffffff
+description=smoked salmon roll, description=Smoked\nSalmon\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=26, color=#ffffff
+description=philadelphia roll, description=Philadelphia\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=23, color=#ffffff
+description=unagi w cheese roll, description=Unagi w cheese\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=37, color=#a0522d
+description=house roll, description=House\nRoll, category=ROLL, options=[], printer=ROLL, valid=true, position=17, color=#ffffff
+description=futomaki half, description=Futomaki\nHalf, category=ROLL, options=[], printer=ROLL, valid=true, position=16, color=#ffffff
+description=futomaki full, description=Futomaki\nFull, category=ROLL, options=[], printer=ROLL, valid=true, position=15, color=#ffffff
+description=kids combo, description=Kids\nCombo, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=5, color=#ffffff
+description=california combo, description=California\nCombo, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=3, color=#ffffff
+description=bc combo, description=BC\nCombo, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=2, color=#ffffff
+description=vege combo, description=Vege\nCombo, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=7, color=#ffffff
+description=dynamite combo, description=Dynamite\nCombo, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=4, color=#ffffff
+description=alaska combo, description=Alaska\nCombo, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=1, color=#ffffff
+description=spicy tuna combo, description=Spicy\nTuna\nCombo, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=13, color=#ff6347
+description=spicy salmon combo, description=Spicy\nSalmon\nCombo, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=14, color=#ff6347
+description=S/S combo, description=S/S\nCombo, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=8, color=#ffffff
+description=mix combo, description=Mix\nCombo, category=COMBO, options=[], printer=ROLL, valid=true, position=6, color=#ffffff
+description=T/S combo, description=T/S\nCombo, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=9, color=#ffffff
+description=assorted sushi, description=Assorted\nSushi, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=10, color=#ffffff
+description=deluxe assorted sushi, description=Deluxe\nSushi, category=COMBO, options=[], printer=SASHIMI_ROLL, valid=true, position=11, color=#ffffff
+description=red roll, description=Red\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=12, color=#ffffff
+description=spider roll, description=Spider\nRoll, category=SPECIAL, options=[], printer=ROLL_KITCHEN, valid=true, position=6, color=#ffffff
+description=rock n roll, description=Rock N\nRoll, category=SPECIAL, options=[], printer=ROLL_KITCHEN, valid=true, position=5, color=#ffffff
+description=coco mango roll, description=Coco\nMango\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=2, color=#ffffff
+description=crunch awesome roll, description=Crunch\nAwesome\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=3, color=#ffffff
+description=crunch fantastic roll, description=Crunch\nFantastic\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=4, color=#ffffff
+description=magic salmon roll, description=Magic\nSalmon\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=13, color=#ffffff
+description=caribbean roll, description=Caribbean\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=1, color=#ffffff
+description=red dragon roll, description=Red\nDragon\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=10, color=#ffffff
+description=black dragon roll, description=Black\nDragon\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=7, color=#ffffff
+description=gold dragon roll, description=Gold\nDragon\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=9, color=#ffffff
+description=double dragon roll, description=Double\nDragon\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=8, color=#ffffff
+description=volcano roll, description=Volcano\nRoll, category=SPECIAL, options=[], printer=SASHIMI_ROLL, valid=true, position=14, color=#ffffff
+description=aria special roll, description=Aria\nSpecial\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=17, color=#ffffff
+description=red salmon roll, description=Red\nSalmon\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=15, color=#ffffff
+description=red tuna roll, description=Red\nTuna\nRoll, category=SPECIAL, options=[], printer=ROLL, valid=true, position=16, color=#ffffff

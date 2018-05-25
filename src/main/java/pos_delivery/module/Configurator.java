@@ -3,22 +3,82 @@ package pos_delivery.module;
 import pos_delivery.model.Category;
 import pos_delivery.model.Menu;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.util.Properties;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Configurator {
 
+    private static final String PROPERTY_LOCATION = "./resources/config.properties";
     private static final String MENU_LOCATION = "./resources/menu";
+
+    private static final String BILL_PRINTER = "BILL_PRINTER";
+    private static final String ROLL_PRINTER = "ROLL_PRINTER";
+    private static final String SASHIMI_PRINTER = "SASHIMI_PRINTER";
+    private static final String KITCHEN_PRINTER = "KITCHEN_PRINTER";
 
     public static void load() {
         try {
-            parseMenu();
+            FileInputStream input = new FileInputStream(PROPERTY_LOCATION);
+            Properties prop = new Properties();
+            prop.load(input);
+
+            PrinterService.ROLL_PRINTER.append(prop.getProperty(ROLL_PRINTER));
+            PrinterService.SASHIMI_PRINTER.append(prop.getProperty(SASHIMI_PRINTER));
+            PrinterService.KITCHEN_PRINTER.append(prop.getProperty(KITCHEN_PRINTER));
+            PrinterService.BILL_PRINTER.append(prop.getProperty(BILL_PRINTER));
+
+            if (!Boolean.parseBoolean(prop.getProperty("INITIALIZED"))) {
+                parseMenu();
+                FileOutputStream output = new FileOutputStream(PROPERTY_LOCATION);
+                prop.setProperty("INITIALIZED", "TRUE");
+                prop.store(output, null);
+                output.close();
+            }
+
+            input.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void save(PrinterService.Printer printer, String printerName) throws Exception {
+        FileInputStream input = new FileInputStream(PROPERTY_LOCATION);
+        Properties prop = new Properties();
+        prop.load(input);
+
+        switch (printer) {
+            case SASHIMI:
+                prop.setProperty(SASHIMI_PRINTER, printerName);
+                PrinterService.SASHIMI_PRINTER.setLength(0);
+                PrinterService.SASHIMI_PRINTER.append(prop.getProperty(SASHIMI_PRINTER));
+                break;
+            case ROLL:
+                prop.setProperty(ROLL_PRINTER, printerName);
+                PrinterService.ROLL_PRINTER.setLength(0);
+                PrinterService.ROLL_PRINTER.append(prop.getProperty(ROLL_PRINTER));
+                break;
+            case KITCHEN:
+                prop.setProperty(KITCHEN_PRINTER, printerName);
+                PrinterService.KITCHEN_PRINTER.setLength(0);
+                PrinterService.KITCHEN_PRINTER.append(prop.getProperty(KITCHEN_PRINTER));
+                break;
+            case NO_PRINTER:
+                prop.setProperty(BILL_PRINTER, printerName);
+                PrinterService.BILL_PRINTER.setLength(0);
+                PrinterService.BILL_PRINTER.append(prop.getProperty(BILL_PRINTER));
+                break;
+
+            default:
+                break;
+        }
+
+        FileOutputStream output = new FileOutputStream(PROPERTY_LOCATION);
+        prop.store(output, null);
+
+        input.close();
+        output.close();
     }
 
     private static void parseMenu() throws Exception {

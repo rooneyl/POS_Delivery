@@ -3,9 +3,10 @@ package pos_delivery.module;
 import pos_delivery.model.Category;
 import pos_delivery.model.Menu;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public final class MenuController {
 
@@ -17,11 +18,16 @@ public final class MenuController {
      * The Map Only Store Valid Menus.
      */
     private MenuController() {
-        menus = DataBaseController.getInstance()
+        menus = new LinkedHashMap<>();
+        for (Category category : Category.values()) {
+            menus.put(category, new ArrayList<>());
+        }
+
+        DataBaseController.getInstance()
                 .retrieveMenu()
                 .stream()
                 .filter(Menu::isValid)
-                .collect(Collectors.groupingBy(Menu::getCategory));
+                .forEach(menu -> menus.get(menu.getCategory()).add(menu));
     }
 
     /**

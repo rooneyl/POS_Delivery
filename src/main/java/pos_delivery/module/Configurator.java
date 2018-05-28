@@ -31,10 +31,10 @@ public class Configurator {
 
             if (!Boolean.parseBoolean(prop.getProperty("INITIALIZED"))) {
                 parseMenu();
-                FileOutputStream output = new FileOutputStream(PROPERTY_LOCATION);
-                prop.setProperty("INITIALIZED", "TRUE");
-                prop.store(output, null);
-                output.close();
+//                FileOutputStream output = new FileOutputStream(PROPERTY_LOCATION);
+//                prop.setProperty("INITIALIZED", "TRUE");
+//                prop.store(output, null);
+//                output.close();
             }
 
             input.close();

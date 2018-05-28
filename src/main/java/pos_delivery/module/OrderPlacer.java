@@ -7,6 +7,7 @@ import pos_delivery.model.Source;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * OrderPlacer Organizes Orders Taken From Customer.
@@ -99,9 +100,13 @@ public class OrderPlacer {
     /**
      * Place Order.
      * Sends Tasks To Corresponding Cooking Section.
-     * Store OrderInformation In DB
+     * Store OrderInformation In DB.
+     * Do Nothing If There Is No Order.
      */
     public void placeOrder() {
+        int totalOrderNum = orderList.stream().mapToInt(List::size).sum();
+        if(totalOrderNum == 0) return;
+
         /* Execute Printer Job */
         // TODO
 

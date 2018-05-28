@@ -42,7 +42,7 @@ public class Order implements Serializable {
     public Customer getCustomer() { return customer; }
     public void setCustomer(Customer customer) { this.customer = customer; }
 
-    @Id @ManyToOne(fetch = FetchType.LAZY)
+    @Id @ManyToOne(fetch = FetchType.EAGER)
     public Menu getMenu() { return menu; }
     public void setMenu(Menu menu) { this.menu = menu; }
 

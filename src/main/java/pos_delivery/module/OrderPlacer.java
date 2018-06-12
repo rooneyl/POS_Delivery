@@ -7,7 +7,6 @@ import pos_delivery.model.Source;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * OrderPlacer Organizes Orders Taken From Customer.
@@ -105,10 +104,10 @@ public class OrderPlacer {
      */
     public void placeOrder() {
         int totalOrderNum = orderList.stream().mapToInt(List::size).sum();
-        if(totalOrderNum == 0) return;
+        if (totalOrderNum == 0) return;
 
         /* Execute Printer Job */
-        // TODO
+        PrinterService.print(customer, orderList);
 
         /* Aggregate List of OrderList into Single List */
         List<Order> netOrder = orderList.get(0);

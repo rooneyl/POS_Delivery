@@ -107,7 +107,7 @@ public class OrderPlacer {
         if (totalOrderNum == 0) return;
 
         /* Execute Printer Job */
-        PrinterService.print(customer, orderList);
+//        PrinterService.print(customer, orderList);
 
         /* Aggregate List of OrderList into Single List */
         List<Order> netOrder = orderList.get(0);

@@ -13,39 +13,59 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+/**
+ * PrinterService Handles Printing Task When Order Is Placed.
+ * Each Order Belong To Specific Section In The Kitchen.
+ * These Orders Are Sent Using Printers To Assign What To Make.
+ */
 public class PrinterService {
     static StringBuffer ROLL_PRINTER = new StringBuffer();
     static StringBuffer SASHIMI_PRINTER = new StringBuffer();
     static StringBuffer KITCHEN_PRINTER = new StringBuffer();
     static StringBuffer BILL_PRINTER = new StringBuffer();
 
+    /**
+     * Initiating Print Job.
+     */
     public static void print(Customer customer, List<List<Order>> orders) {
 
+        // Map of task printer jobs
         Map<String, PrinterJobBuilder> printers = new HashMap<>();
 
         for (List<Order> section : orders) {
+            // Order with multiple bagging are separated using section
             for (Order order : section) {
+                // denote that printer job is written
                 Set<String> editedPrinters = new HashSet<>();
 
                 for (StringBuffer printerName : order.getMenu().getPrinter().getPrinters()) {
                     String printerKey = printerName.toString();
                     editedPrinters.add(printerKey);
 
-                    if (!printers.containsKey(printerKey)) {
-                        printers.put(printerKey, createPrinterJobBuilder(customer));
+                    if (!printers.containsKey(printerKey)) { // First task for dedicated dept
+                        printers.put(printerKey, createTask(customer));
                     }
+
+                    // print quantity, item name, and details
                     PrinterJobBuilder printerBuilder = printers.get(printerKey).writeString(order.toString());
                     order.getDetails().forEach(detail -> printerBuilder.writeString(" (" + detail + ")"));
                 }
 
+                //
                 editedPrinters.forEach(editedPrinter -> printers.get(editedPrinter).addSeparator());
             }
         }
 
+        // Create receipt
         createBill(customer, orders);
+
+        // Execute printers
         printers.forEach((printer, builder) -> executePrint(printer, builder.getByte()));
     }
 
+    /**
+     * Create Receipt For Customers.
+     */
     private static void createBill(Customer customer, List<List<Order>> order) {
         PrinterJobBuilder bill = new PrinterJobBuilder();
         bill
@@ -73,10 +93,14 @@ public class PrinterService {
             bill.writeString(sectionDetail);
             bill.addSeparator();
         });
+
         executePrint(BILL_PRINTER.toString(), bill.getByte());
     }
 
-    private static PrinterJobBuilder createPrinterJobBuilder(Customer customer) {
+    /**
+     * Create Task Header.
+     */
+    private static PrinterJobBuilder createTask(Customer customer) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mm a");
         LocalTime now = customer.getTime().toLocalTime().plusMinutes(15);
 
@@ -92,6 +116,11 @@ public class PrinterService {
                 .bold(false);
     }
 
+    /**
+     * Execute Printer.
+     * @param printer name of printer
+     * @param b byte array of what to print
+     */
     private static void executePrint(String printer, byte[] b) {
         try {
             PrinterName printerName = new PrinterName(printer, null);
@@ -107,6 +136,10 @@ public class PrinterService {
         }
     }
 
+    /**
+     * Search For Connected Printer Names.
+     * @return list of connected printer names
+     */
     public static List<String> getPrinters() {
 
         DocFlavor flavor = DocFlavor.BYTE_ARRAY.AUTOSENSE;
@@ -121,6 +154,11 @@ public class PrinterService {
         return printerList;
     }
 
+    /**
+     * Enum Representing Department Associated With Making Item.
+     * If More Than Two Department Is Collaborating, The Two Dept Are Named Using
+     * under dash.
+     */
     public enum Printer {
         ALL(new ArrayList<>(Arrays.asList(SASHIMI_PRINTER, KITCHEN_PRINTER, ROLL_PRINTER))),
         SASHIMI_ROLL(new ArrayList<>(Arrays.asList(SASHIMI_PRINTER, ROLL_PRINTER))),

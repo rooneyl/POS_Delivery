@@ -71,9 +71,6 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        String str = getMenu().getName();
-        for (String detail : details) str += "\n(" + detail + ")";
-
-        return str;
+        return Integer.toString(quantity) + " " + getMenu().getName();
     }
 }

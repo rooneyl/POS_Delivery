@@ -1,7 +1,6 @@
 package pos_delivery.module;
 
 import pos_delivery.model.Customer;
-import pos_delivery.model.Menu;
 import pos_delivery.model.Order;
 
 import javax.print.*;
@@ -23,6 +22,25 @@ public class PrinterService {
     public static void print(Customer customer, List<List<Order>> orders) {
 
         Map<String, PrinterJobBuilder> printers = new HashMap<>();
+
+        for (List<Order> section : orders) {
+            for (Order order : section) {
+                Set<String> editedPrinters = new HashSet<>();
+
+                for (StringBuffer printerName : order.getMenu().getPrinter().getPrinters()) {
+                    String printerKey = printerName.toString();
+                    editedPrinters.add(printerKey);
+
+                    if (!printers.containsKey(printerKey)) {
+                        printers.put(printerKey, createPrinterJobBuilder(customer));
+                    }
+                    PrinterJobBuilder printerBuilder = printers.get(printerKey).writeString(order.toString());
+                    order.getDetails().forEach(detail -> printerBuilder.writeString(" (" + detail + ")"));
+                }
+
+                editedPrinters.forEach(editedPrinter -> printers.get(editedPrinter).addSeparator());
+            }
+        }
 
         createBill(customer, orders);
         printers.forEach((printer, builder) -> executePrint(printer, builder.getByte()));
@@ -49,8 +67,7 @@ public class PrinterService {
 
         order.forEach(section -> {
             String[] sectionDetail = section.stream()
-                    .map(Order::getMenu)
-                    .map(Menu::getName)
+                    .map(Order::toString)
                     .toArray(String[]::new);
 
             bill.writeString(sectionDetail);

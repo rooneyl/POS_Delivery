@@ -1,5 +1,5 @@
 target
 *.iml
-resources/dataBase/db.mv.db
+resources/dataBase/*
 .idea
 .DS_store

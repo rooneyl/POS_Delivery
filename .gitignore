@@ -1,4 +1,6 @@
 target
+resources/icons/doordash.png
+resources/icons/foodora.png
 *.iml
 resources/dataBase/*
 .idea

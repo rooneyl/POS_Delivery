@@ -1,0 +1,15 @@
+.tree-table-row-cell {
+     -fx-indent: -10;
+ }
+
+.tree-table-row-cell .arrow {
+    -fx-background-color: transparent;
+}
+
+.order-view-table {
+    -fx-alignment: center;
+}
+
+#customer-view .table-column {
+  -fx-alignment: center;
+}

@@ -13,7 +13,7 @@ import pos_delivery.module.Configurator;
 import pos_delivery.module.DataBaseController;
 import pos_delivery.module.OrderPlacer;
 import pos_delivery.view.Layout;
-import pos_delivery.view.OrderScene;
+import pos_delivery.view.Scene.OrderScene;
 import pos_delivery.view.Util;
 
 import java.util.LinkedHashMap;
@@ -48,8 +48,8 @@ public class App extends Application {
         companyButtons.forEach(((source, button) -> {
             button.setOnAction(event ->
                     Util.getInputText("Customer").ifPresent(customer -> {
-                        orderScene = new OrderScene(new AnchorPane(),Layout.SCREEN_WIDTH,Layout.SCREEN_HEIGHT);
-//                        orderScene.setOrderPlacer(new OrderPlacer(customer, source));
+                        orderScene = new OrderScene(primaryStage,mainScene);
+                        orderScene.setOrderPlacer(new OrderPlacer(customer, source));
                         primaryStage.setScene(orderScene);
                     }));
             sourceSelectorBox.getChildren().add(button);

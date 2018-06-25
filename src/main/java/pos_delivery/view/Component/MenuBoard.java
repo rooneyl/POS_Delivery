@@ -23,6 +23,12 @@ public class MenuBoard extends VBox {
     private Map<Category, FlowPane> menuBoard;
     private List<CategoryListener> listeners;
 
+    /**
+     * Creates MenuBoard with specified width and height
+     *
+     * @param width  width of MenuBoard
+     * @param height height of Menu Board
+     */
     public MenuBoard(boolean showAll, double width, double height) {
         super();
         this.menuBoard = new HashMap<>();
@@ -90,15 +96,29 @@ public class MenuBoard extends VBox {
         this.getChildren().addAll(tab, new Separator(), currentTab);
     }
 
-
+    /**
+     * Return map of flowPane for configuring setOnAction of each menu buttons
+     *
+     * @return Map of flowPane consists of each menu buttons
+     */
     public Map<Category, FlowPane> getMenuBoard() {
         return menuBoard;
     }
 
+    /**
+     * Set Listener
+     *
+     * @param categoryListener
+     */
     public void setListener(CategoryListener categoryListener) {
         listeners.add(categoryListener);
     }
 
+    /**
+     * Change Tab Detail to Corresponding Category
+     *
+     * @param category Category that is going to be active tab
+     */
     public void changeCategory(Category category) {
         this.getChildren().remove(currentTab);
         currentTab = menuBoard.get(category);

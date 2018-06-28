@@ -13,8 +13,10 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import pos_delivery.model.Category;
 import pos_delivery.model.Menu;
+import pos_delivery.module.MenuController;
 import pos_delivery.module.OrderPlacer;
 import pos_delivery.view.Component.MenuBoard;
+import pos_delivery.view.Component.OrderView;
 import pos_delivery.view.Layout;
 import pos_delivery.view.Util;
 
@@ -24,6 +26,7 @@ public class OrderScene extends SceneBase {
     private TextFlow orderInfo;
 
     private MenuBoard menuBoard;
+    private OrderView orderView;
 
     public OrderScene(Stage primaryStage, Scene scene) {
         super(primaryStage, scene, true);
@@ -54,6 +57,7 @@ public class OrderScene extends SceneBase {
 
         orderInfo.getChildren().addAll(customerName, source);
 
+        orderView.clear();
     }
 
     public void reload() {
@@ -62,9 +66,10 @@ public class OrderScene extends SceneBase {
 
 
     private VBox createControlBox() {
+        orderView = new OrderView(true, Layout.LISTVIEW_WIDTH, Layout.LISTVIEW_HEIGHT);
 
         VBox controlBox = new VBox(Layout.SPACING);
-        controlBox.getChildren().addAll(createControlPanel());
+        controlBox.getChildren().addAll(orderView, createControlPanel());
         controlBox.setPrefSize(Layout.ONE_THIRD_WIDTH, Layout.SCREEN_HEIGHT);
         controlBox.setPadding(new Insets(Layout.SPACING));
         controlBox.setAlignment(Pos.CENTER);
@@ -79,16 +84,36 @@ public class OrderScene extends SceneBase {
 
         Button memoButton = Util.createButton(Layout.MEMO_ICON, controlButtonSize, true);
         memoButton.setOnAction(event -> Util.getInputText("").ifPresent(detail -> {
+            if (detail.equals("") || orderView.getSelectedOrder() == null) return;
+            orderPlacer.addDetail(orderView.getSelectedOrder(), detail, orderView.getSection());
+            orderView.updateTable(orderPlacer.getOrderList());
         }));
 
         Button deleteButton = Util.createButton(Layout.DELETE_ICON, controlButtonSize, true);
         deleteButton.setOnAction(event -> {
+            if (orderView.getSelectedOrder() == null) return;
+
+            if (orderView.getSelectedOrder().getQuantity() == 0) {
+                // case where user selected section(i.e. separator)
+                orderPlacer.getOrderList().remove(orderView.getSelectedOrder().getMenu().getPosition());
+            } else {
+                // case where user selected menu
+                orderPlacer.removeOrder(orderView.getSelectedOrder(), orderView.getSection());
+                if (orderPlacer.getOrderList().size() > 1 && orderPlacer.getOrderList().get(orderView.getSection()).isEmpty()) {
+                    // remove section if empty
+                    orderPlacer.getOrderList().remove(orderView.getSection());
+                }
+            }
+
+            // update table
+            orderView.updateTable(orderPlacer.getOrderList());
         });
 
         Button separatorButton = Util.createButton(Layout.SEPARATE_ICON, controlButtonSize, true);
         separatorButton.setOnAction(event -> {
             if (!orderPlacer.getOrderList().get(orderPlacer.getOrderList().size() - 1).isEmpty()) {
                 orderPlacer.addSeparator();
+                orderView.updateTable(orderPlacer.getOrderList());
             }
         });
 
@@ -126,6 +151,8 @@ public class OrderScene extends SceneBase {
     }
 
     private void menuSelectAction(Menu menu) {
+        orderPlacer.addOrder(menu, orderView.getSection());
+        orderView.updateTable(orderPlacer.getOrderList());
     }
 
     public void initializeMenuBoard() {

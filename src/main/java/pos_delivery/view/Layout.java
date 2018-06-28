@@ -18,6 +18,9 @@ public class Layout {
     public static final double COMPANY_BUTTON_SIZE = Layout.SCREEN_WIDTH * 0.15;
     public static final double SETTING_BUTTON_SIZE = Layout.SCREEN_WIDTH * 0.05;
 
+    public static final double LISTVIEW_HEIGHT = Math.floor(SCREEN_HEIGHT * 0.80);
+    public static final double LISTVIEW_WIDTH = Math.floor(Layout.ONE_THIRD_WIDTH - Layout.SPACING);
+
     // ICONS
     public static final String RETURN_ICON = "./resources/icons/return.png";
     public static final String MEMO_ICON = "./resources/icons/memo.png";

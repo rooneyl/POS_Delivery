@@ -42,7 +42,7 @@ public class OrderView extends VBox {
         itemTable.setPrefWidth(Math.floor(width * 0.9 - 1));
         itemTable.setCellValueFactory((TableColumn.CellDataFeatures<Order, String> p) -> {
             Order order = p.getValue();
-            return new ReadOnlyStringWrapper(order.toString());
+            return new ReadOnlyStringWrapper(order.getMenu().getName());
         });
 
         tableView.getColumns().add(qtyTable);
@@ -70,7 +70,7 @@ public class OrderView extends VBox {
         itemTree.setPrefWidth(Math.floor(width * 0.9) - 1);
         itemTree.setCellValueFactory((TreeTableColumn.CellDataFeatures<Order, String> p) -> {
             Order order = p.getValue().getValue();
-            return new ReadOnlyStringWrapper(order.toString());
+            return new ReadOnlyStringWrapper(order.getMenu().getName());
         });
 
         treeView.getColumns().add(qtyTree);

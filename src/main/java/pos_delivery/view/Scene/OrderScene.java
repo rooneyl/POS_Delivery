@@ -13,7 +13,6 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import pos_delivery.model.Category;
 import pos_delivery.model.Menu;
-import pos_delivery.module.MenuController;
 import pos_delivery.module.OrderPlacer;
 import pos_delivery.view.Component.MenuBoard;
 import pos_delivery.view.Component.OrderView;

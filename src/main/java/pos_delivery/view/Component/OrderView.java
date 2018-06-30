@@ -1,9 +1,8 @@
 package pos_delivery.view.Component;
 
 import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.collections.FXCollections;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import pos_delivery.model.Menu;
 import pos_delivery.model.Order;
@@ -13,6 +12,7 @@ import java.util.List;
 
 public class OrderView extends VBox {
 
+    private TableView<Order> tableView;
     private TreeTableView<Order> treeView;
 
     private int section = 0;
@@ -22,6 +22,35 @@ public class OrderView extends VBox {
 
     public OrderView(boolean enableSelection, double width, double height) {
         this.enableSelection = enableSelection;
+
+        /* Table View */
+        tableView = new TableView<>();
+        tableView.setPrefHeight(height);
+        tableView.setPrefWidth(width);
+
+        TableColumn<Order, String> qtyTable = new TableColumn<>("qty");
+        qtyTable.setPrefWidth(Math.floor(width * 0.1));
+        qtyTable.getStyleClass().add("order-view-table");
+        qtyTable.setCellValueFactory((TableColumn.CellDataFeatures<Order, String> param) -> {
+            String qtyStr = "";
+            if (param.getValue().getQuantity() != 0)
+                qtyStr = Integer.toString(param.getValue().getQuantity());
+            return new ReadOnlyStringWrapper(qtyStr);
+        });
+
+        TableColumn<Order, String> itemTable = new TableColumn<>("Item");
+        itemTable.setPrefWidth(Math.floor(width * 0.9 - 1));
+        itemTable.setCellValueFactory((TableColumn.CellDataFeatures<Order, String> p) -> {
+            Order order = p.getValue();
+            return new ReadOnlyStringWrapper(order.toString());
+        });
+
+        tableView.getColumns().add(qtyTable);
+        tableView.getColumns().add(itemTable);
+        tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            section = 0;
+            selectedOrder = newValue;
+        });
 
         /* Tree Table View */
         treeView = new TreeTableView<>();
@@ -59,7 +88,11 @@ public class OrderView extends VBox {
             section = order.getMenu().getPosition();
         });
 
-        treeView.setSelectionModel(null);
+        if (!enableSelection) {
+            tableView.setSelectionModel(null);
+            treeView.setSelectionModel(null);
+        }
+        this.getChildren().add(tableView);
     }
 
     public int getSection() {
@@ -71,13 +104,29 @@ public class OrderView extends VBox {
     }
 
     public void clear() {
+        tableView.getItems().clear();
         treeView.getRoot().getChildren().clear();
     }
 
     public void updateTable(List<List<Order>> orderList) {
         this.getChildren().clear();
 
-        updateTreeView(orderList);
+        if (orderList.size() == 1)
+            updateTableView(orderList.get(0));
+        else
+            updateTreeView(orderList);
+
+    }
+
+    private void updateTableView(List<Order> orderList) {
+        this.getChildren().add(tableView);
+
+        tableView.getItems().clear();
+        tableView.setItems(FXCollections.observableArrayList(orderList));
+
+        if (enableSelection) {
+            tableView.getSelectionModel().selectLast();
+        }
     }
 
     private void updateTreeView(List<List<Order>> orderList) {
@@ -112,4 +161,3 @@ public class OrderView extends VBox {
         return separator;
     }
 }
-

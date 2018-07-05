@@ -2,7 +2,9 @@ package pos_delivery.view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -69,5 +71,12 @@ public class Util {
             return input;
 
         return Optional.empty();
+    }
+
+    public static boolean getConfirmationDialog() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to continue?", ButtonType.YES, ButtonType.CANCEL);
+        alert.setGraphic(null);
+        alert.showAndWait();
+        return alert.getResult() == ButtonType.YES;
     }
 }

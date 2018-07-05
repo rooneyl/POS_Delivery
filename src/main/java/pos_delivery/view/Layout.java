@@ -28,6 +28,8 @@ public class Layout {
     public static final String PRINT_ICON = "./resources/icons/print.png";
     public static final String SEPARATE_ICON = "./resources/icons/separator.png";
     public static final String EXIT_ICON = "./resources/icons/exit.png";
+    public static final String HISTORY_ICON = "./resources/icons/history.png";
+    public static final String CONFIG_ICON = "./resources/icons/config.png";
 
     // JavaFx Style
     public static final String TAB_STYLE = "-fx-font: 16 arial;";

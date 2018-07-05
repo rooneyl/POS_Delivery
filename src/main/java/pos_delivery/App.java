@@ -13,6 +13,7 @@ import pos_delivery.module.Configurator;
 import pos_delivery.module.DataBaseController;
 import pos_delivery.module.OrderPlacer;
 import pos_delivery.view.Layout;
+import pos_delivery.view.Scene.HistoryScene;
 import pos_delivery.view.Scene.OrderScene;
 import pos_delivery.view.Util;
 
@@ -27,7 +28,7 @@ public class App extends Application {
     private Stage primaryStage;
 
     private OrderScene orderScene;
-
+    private HistoryScene historyScene;
 
     public static void main(String[] args) {
         launch(args);
@@ -55,6 +56,13 @@ public class App extends Application {
             sourceSelectorBox.getChildren().add(button);
         }));
 
+        // History Scene
+        Button historySceneButton = Util.createButton(Layout.HISTORY_ICON, Layout.SETTING_BUTTON_SIZE, false);
+        historySceneButton.setOnAction(event -> {
+            historyScene = new HistoryScene(primaryStage,mainScene);
+            primaryStage.setScene(historyScene);
+        });
+
         // Exit Button
         Button exitButton = Util.createButton(Layout.EXIT_ICON, Layout.SETTING_BUTTON_SIZE, false);
         exitButton.setOnAction(event -> primaryStage.close());
@@ -62,7 +70,7 @@ public class App extends Application {
         // Control Buttons
         HBox controlButtonBox = Util.getHBox(Layout.SCREEN_WIDTH, Math.floor(Layout.SCREEN_HEIGHT * 0.10));
         controlButtonBox.setAlignment(Pos.TOP_RIGHT);
-        controlButtonBox.getChildren().addAll(exitButton);
+        controlButtonBox.getChildren().addAll(historySceneButton,exitButton);
 
         mainPane.getChildren().addAll(sourceSelectorBox, controlButtonBox);
 

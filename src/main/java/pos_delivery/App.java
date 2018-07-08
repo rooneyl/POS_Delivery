@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -13,6 +12,7 @@ import pos_delivery.module.Configurator;
 import pos_delivery.module.DataBaseController;
 import pos_delivery.module.OrderPlacer;
 import pos_delivery.view.Layout;
+import pos_delivery.view.Scene.EditScene;
 import pos_delivery.view.Scene.HistoryScene;
 import pos_delivery.view.Scene.OrderScene;
 import pos_delivery.view.Util;
@@ -29,6 +29,7 @@ public class App extends Application {
 
     private OrderScene orderScene;
     private HistoryScene historyScene;
+    private EditScene editScene;
 
     public static void main(String[] args) {
         launch(args);
@@ -39,7 +40,7 @@ public class App extends Application {
         // MainScene, Entry Point of App
         FlowPane mainPane = new FlowPane();
         mainPane.setAlignment(Pos.CENTER);
-        mainScene = new Scene(mainPane, Layout.SCREEN_WIDTH,Layout.SCREEN_HEIGHT);
+        mainScene = new Scene(mainPane, Layout.SCREEN_WIDTH, Layout.SCREEN_HEIGHT);
 
         // Source Selector
         HBox sourceSelectorBox = Util.getHBox(Layout.SCREEN_WIDTH, Math.floor(Layout.SCREEN_HEIGHT * 0.9));
@@ -49,7 +50,7 @@ public class App extends Application {
         companyButtons.forEach(((source, button) -> {
             button.setOnAction(event ->
                     Util.getInputText("Customer").ifPresent(customer -> {
-                        orderScene = new OrderScene(primaryStage,mainScene);
+                        orderScene = new OrderScene(primaryStage, mainScene);
                         orderScene.setOrderPlacer(new OrderPlacer(customer, source));
                         primaryStage.setScene(orderScene);
                     }));
@@ -59,8 +60,14 @@ public class App extends Application {
         // History Scene
         Button historySceneButton = Util.createButton(Layout.HISTORY_ICON, Layout.SETTING_BUTTON_SIZE, false);
         historySceneButton.setOnAction(event -> {
-            historyScene = new HistoryScene(primaryStage,mainScene);
+            historyScene = new HistoryScene(primaryStage, mainScene);
             primaryStage.setScene(historyScene);
+        });
+
+        Button editSceneButton = Util.createButton(Layout.HISTORY_ICON, Layout.SETTING_BUTTON_SIZE, false);
+        editSceneButton.setOnAction(event -> {
+            editScene = new EditScene(primaryStage, mainScene);
+            primaryStage.setScene(editScene);
         });
 
         // Exit Button
@@ -70,7 +77,7 @@ public class App extends Application {
         // Control Buttons
         HBox controlButtonBox = Util.getHBox(Layout.SCREEN_WIDTH, Math.floor(Layout.SCREEN_HEIGHT * 0.10));
         controlButtonBox.setAlignment(Pos.TOP_RIGHT);
-        controlButtonBox.getChildren().addAll(historySceneButton,exitButton);
+        controlButtonBox.getChildren().addAll(editSceneButton, historySceneButton, exitButton);
 
         mainPane.getChildren().addAll(sourceSelectorBox, controlButtonBox);
 

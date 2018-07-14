@@ -6,15 +6,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pos_delivery.model.Source;
 import pos_delivery.module.Configurator;
 import pos_delivery.module.DataBaseController;
 import pos_delivery.module.OrderPlacer;
 import pos_delivery.view.Layout;
-import pos_delivery.view.Scene.EditScene;
-import pos_delivery.view.Scene.HistoryScene;
-import pos_delivery.view.Scene.OrderScene;
+import pos_delivery.view.Scene.*;
 import pos_delivery.view.Util;
 
 import java.util.LinkedHashMap;
@@ -29,6 +30,7 @@ public class App extends Application {
 
     private OrderScene orderScene;
     private HistoryScene historyScene;
+    private MenuLayoutScene menuLayoutScene;
     private EditScene editScene;
 
     public static void main(String[] args) {
@@ -42,44 +44,38 @@ public class App extends Application {
         mainPane.setAlignment(Pos.CENTER);
         mainScene = new Scene(mainPane, Layout.SCREEN_WIDTH, Layout.SCREEN_HEIGHT);
 
-        // Source Selector
-        HBox sourceSelectorBox = Util.getHBox(Layout.SCREEN_WIDTH, Math.floor(Layout.SCREEN_HEIGHT * 0.9));
+        // Source Selection
+        HBox upperBox = Util.getHBox(Layout.SCREEN_WIDTH, Math.floor(Layout.SCREEN_HEIGHT * 0.9));
         Map<Source, Button> companyButtons = new LinkedHashMap<>();
         companyButtons.put(Source.DOORDASH, Util.createButton(Layout.DOORDASH_ICON, Layout.COMPANY_BUTTON_SIZE, false));
         companyButtons.put(Source.FOODORA, Util.createButton(Layout.FOODORA_ICON, Layout.COMPANY_BUTTON_SIZE, false));
         companyButtons.forEach(((source, button) -> {
             button.setOnAction(event ->
                     Util.getInputText("Customer").ifPresent(customer -> {
-                        orderScene = new OrderScene(primaryStage, mainScene);
+                        orderScene = (OrderScene) createScene(orderScene, OrderScene.class);
                         orderScene.setOrderPlacer(new OrderPlacer(customer, source));
                         primaryStage.setScene(orderScene);
                     }));
-            sourceSelectorBox.getChildren().add(button);
+            upperBox.getChildren().add(button);
         }));
 
-        // History Scene
+        // HistoryScene
         Button historySceneButton = Util.createButton(Layout.HISTORY_ICON, Layout.SETTING_BUTTON_SIZE, false);
-        historySceneButton.setOnAction(event -> {
-            historyScene = new HistoryScene(primaryStage, mainScene);
-            primaryStage.setScene(historyScene);
-        });
+        historySceneButton.setOnAction(event -> historyScene = (HistoryScene) createScene(historyScene, HistoryScene.class));
 
-        Button editSceneButton = Util.createButton(Layout.HISTORY_ICON, Layout.SETTING_BUTTON_SIZE, false);
-        editSceneButton.setOnAction(event -> {
-            editScene = new EditScene(primaryStage, mainScene);
-            primaryStage.setScene(editScene);
-        });
+        // Configuration Scene Selector
+        Button configSceneButton = Util.createButton(Layout.CONFIG_ICON, Layout.SETTING_BUTTON_SIZE, false);
+        configSceneButton.setOnAction(event -> configSelector());
 
-        // Exit Button
+        // ExitButton
         Button exitButton = Util.createButton(Layout.EXIT_ICON, Layout.SETTING_BUTTON_SIZE, false);
         exitButton.setOnAction(event -> primaryStage.close());
 
-        // Control Buttons
-        HBox controlButtonBox = Util.getHBox(Layout.SCREEN_WIDTH, Math.floor(Layout.SCREEN_HEIGHT * 0.10));
-        controlButtonBox.setAlignment(Pos.TOP_RIGHT);
-        controlButtonBox.getChildren().addAll(editSceneButton, historySceneButton, exitButton);
-
-        mainPane.getChildren().addAll(sourceSelectorBox, controlButtonBox);
+        // SceneSelection Control Box
+        HBox lowerBox = Util.getHBox(Layout.SCREEN_WIDTH, Math.floor(Layout.SCREEN_HEIGHT * 0.10));
+        lowerBox.setAlignment(Pos.TOP_RIGHT);
+        lowerBox.getChildren().addAll(configSceneButton, historySceneButton, exitButton);
+        mainPane.getChildren().addAll(upperBox, lowerBox);
 
         this.primaryStage = primaryStage;
         primaryStage.setTitle("POS_Delivery");
@@ -87,6 +83,49 @@ public class App extends Application {
 //        primaryStage.setFullScreen(true);
         primaryStage.setScene(mainScene);
         primaryStage.show();
+    }
+
+    private SceneBase createScene(SceneBase sceneBase, Class<? extends SceneBase> sceneClass) {
+        try {
+            if (sceneBase == null) {
+                sceneBase = sceneClass.getConstructor(Stage.class, Scene.class).newInstance(primaryStage, mainScene);
+            } else {
+                sceneBase.reload();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        primaryStage.setScene(sceneBase);
+        return sceneBase;
+    }
+
+    private void configSelector() {
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        VBox dialogVbox = new VBox(Layout.SPACING);
+        dialogVbox.setAlignment(Pos.CENTER);
+        dialogVbox.getChildren().add(new Text("Configuration"));
+
+        Button editMenuButton = new Button("Edit Menu");
+        editMenuButton.setPrefSize(100, 40);
+        editMenuButton.setOnAction(event -> {
+            editScene = (EditScene) createScene(editScene, EditScene.class);
+            dialog.close();
+        });
+        dialogVbox.getChildren().add(editMenuButton);
+
+        Button menuLayoutButton = new Button("Menu Layout");
+        menuLayoutButton.setPrefSize(100, 40);
+        menuLayoutButton.setOnAction(event -> {
+            menuLayoutScene = (MenuLayoutScene) createScene(menuLayoutScene, MenuLayoutScene.class);
+            dialog.close();
+        });
+        dialogVbox.getChildren().add(menuLayoutButton);
+
+        Scene dialogScene = new Scene(dialogVbox, 300, 200);
+        dialog.setScene(dialogScene);
+        dialog.show();
     }
 
     @Override

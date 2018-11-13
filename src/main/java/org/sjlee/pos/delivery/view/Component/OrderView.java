@@ -1,11 +1,11 @@
-package pos_delivery.view.Component;
+package org.sjlee.pos.delivery.view.Component;
 
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import pos_delivery.model.Menu;
-import pos_delivery.model.Order;
+import org.sjlee.pos.delivery.model.Menu;
+import org.sjlee.pos.delivery.model.Order;
 
 import java.util.ArrayList;
 import java.util.List;

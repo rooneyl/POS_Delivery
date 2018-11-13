@@ -1,4 +1,4 @@
-package pos_delivery.view.Scene;
+package org.sjlee.pos.delivery.view.Scene;
 
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
@@ -10,12 +10,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import pos_delivery.model.Category;
-import pos_delivery.model.Menu;
-import pos_delivery.module.MenuController;
-import pos_delivery.module.PrinterService;
-import pos_delivery.view.Layout;
-import pos_delivery.view.Util;
+import org.sjlee.pos.delivery.model.Category;
+import org.sjlee.pos.delivery.model.Menu;
+import org.sjlee.pos.delivery.module.MenuController;
+import org.sjlee.pos.delivery.module.PrinterService;
+import org.sjlee.pos.delivery.view.Layout;
+import org.sjlee.pos.delivery.view.Util;
 
 import java.util.List;
 import java.util.stream.Collectors;

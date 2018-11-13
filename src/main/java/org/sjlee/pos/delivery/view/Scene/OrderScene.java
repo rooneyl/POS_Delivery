@@ -1,4 +1,4 @@
-package pos_delivery.view.Scene;
+package org.sjlee.pos.delivery.view.Scene;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,13 +11,13 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-import pos_delivery.model.Category;
-import pos_delivery.model.Menu;
-import pos_delivery.module.OrderPlacer;
-import pos_delivery.view.Component.MenuBoard;
-import pos_delivery.view.Component.OrderView;
-import pos_delivery.view.Layout;
-import pos_delivery.view.Util;
+import org.sjlee.pos.delivery.model.Category;
+import org.sjlee.pos.delivery.model.Menu;
+import org.sjlee.pos.delivery.module.OrderPlacer;
+import org.sjlee.pos.delivery.view.Component.MenuBoard;
+import org.sjlee.pos.delivery.view.Component.OrderView;
+import org.sjlee.pos.delivery.view.Layout;
+import org.sjlee.pos.delivery.view.Util;
 
 public class OrderScene extends SceneBase {
 

@@ -1,4 +1,4 @@
-package pos_delivery.view.Component;
+package org.sjlee.pos.delivery.view.Component;
 
 
 import javafx.geometry.Insets;
@@ -7,10 +7,10 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
-import pos_delivery.model.Category;
-import pos_delivery.model.Menu;
-import pos_delivery.module.MenuController;
-import pos_delivery.view.Layout;
+import org.sjlee.pos.delivery.model.Category;
+import org.sjlee.pos.delivery.model.Menu;
+import org.sjlee.pos.delivery.module.MenuController;
+import org.sjlee.pos.delivery.view.Layout;
 
 import java.util.ArrayList;
 import java.util.HashMap;

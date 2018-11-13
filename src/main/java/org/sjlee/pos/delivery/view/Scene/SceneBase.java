@@ -1,12 +1,12 @@
-package pos_delivery.view.Scene;
+package org.sjlee.pos.delivery.view.Scene;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import pos_delivery.view.Layout;
-import pos_delivery.view.Util;
+import org.sjlee.pos.delivery.view.Layout;
+import org.sjlee.pos.delivery.view.Util;
 
 public abstract class SceneBase extends Scene {
 

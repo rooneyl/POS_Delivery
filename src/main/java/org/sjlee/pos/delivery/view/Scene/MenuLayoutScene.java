@@ -1,4 +1,4 @@
-package pos_delivery.view.Scene;
+package org.sjlee.pos.delivery.view.Scene;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,13 +15,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
-import pos_delivery.model.Category;
-import pos_delivery.model.Menu;
-import pos_delivery.module.MenuController;
-import pos_delivery.view.Component.CategoryListener;
-import pos_delivery.view.Component.MenuBoard;
-import pos_delivery.view.Layout;
-import pos_delivery.view.Util;
+import org.sjlee.pos.delivery.model.Category;
+import org.sjlee.pos.delivery.model.Menu;
+import org.sjlee.pos.delivery.module.MenuController;
+import org.sjlee.pos.delivery.view.Component.CategoryListener;
+import org.sjlee.pos.delivery.view.Component.MenuBoard;
+import org.sjlee.pos.delivery.view.Util;
+import org.sjlee.pos.delivery.view.Layout;
 
 import java.util.List;
 

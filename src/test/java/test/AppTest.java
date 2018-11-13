@@ -2,11 +2,11 @@ package test;
 
 import org.junit.Before;
 import org.junit.Test;
-import pos_delivery.model.*;
-import pos_delivery.module.Configurator;
-import pos_delivery.module.DataBaseController;
-import pos_delivery.module.MenuController;
-import pos_delivery.module.OrderPlacer;
+import org.sjlee.pos.delivery.model.*;
+import org.sjlee.pos.delivery.module.Configurator;
+import org.sjlee.pos.delivery.module.DataBaseController;
+import org.sjlee.pos.delivery.module.MenuController;
+import org.sjlee.pos.delivery.module.OrderPlacer;
 
 import java.sql.Date;
 import java.time.LocalDate;

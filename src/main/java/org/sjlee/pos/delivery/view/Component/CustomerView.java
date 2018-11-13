@@ -1,12 +1,12 @@
-package pos_delivery.view.Component;
+package org.sjlee.pos.delivery.view.Component;
 
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import pos_delivery.model.Customer;
-import pos_delivery.view.Layout;
+import org.sjlee.pos.delivery.model.Customer;
+import org.sjlee.pos.delivery.view.Layout;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package pos_delivery.module;
+package org.sjlee.pos.delivery.module;
 
-import pos_delivery.model.Category;
-import pos_delivery.model.Menu;
+import org.sjlee.pos.delivery.model.Category;
+import org.sjlee.pos.delivery.model.Menu;
 
 import java.io.*;
 import java.util.Properties;

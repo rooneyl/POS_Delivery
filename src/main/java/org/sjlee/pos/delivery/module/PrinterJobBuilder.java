@@ -1,4 +1,4 @@
-package pos_delivery.module;
+package org.sjlee.pos.delivery.module;
 
 import java.io.ByteArrayOutputStream;
 

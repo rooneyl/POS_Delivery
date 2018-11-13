@@ -1,4 +1,4 @@
-package pos_delivery.view;
+package org.sjlee.pos.delivery.view;
 
 public class Layout {
     // General

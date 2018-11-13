@@ -1,9 +1,9 @@
-package pos_delivery.module;
+package org.sjlee.pos.delivery.module;
 
-import pos_delivery.model.Customer;
-import pos_delivery.model.Menu;
-import pos_delivery.model.Order;
-import pos_delivery.model.Source;
+import org.sjlee.pos.delivery.model.Customer;
+import org.sjlee.pos.delivery.model.Menu;
+import org.sjlee.pos.delivery.model.Order;
+import org.sjlee.pos.delivery.model.Source;
 
 import java.util.ArrayList;
 import java.util.List;

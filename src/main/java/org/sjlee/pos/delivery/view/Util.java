@@ -1,4 +1,4 @@
-package pos_delivery.view;
+package org.sjlee.pos.delivery.view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

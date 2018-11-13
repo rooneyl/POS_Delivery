@@ -1,4 +1,4 @@
-package pos_delivery.module;
+package org.sjlee.pos.delivery.module;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,9 +6,9 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import pos_delivery.model.Customer;
-import pos_delivery.model.Menu;
-import pos_delivery.model.Order;
+import org.sjlee.pos.delivery.model.Customer;
+import org.sjlee.pos.delivery.model.Menu;
+import org.sjlee.pos.delivery.model.Order;
 
 import java.sql.Date;
 import java.util.List;

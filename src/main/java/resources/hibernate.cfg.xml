@@ -13,10 +13,10 @@
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">create</property>
 
-        <mapping class="pos_delivery.model.Order"/>
-        <mapping class="pos_delivery.model.Category"/>
-        <mapping class="pos_delivery.model.Source"/>
-        <mapping class="pos_delivery.model.Customer"/>
-        <mapping class="pos_delivery.model.Menu"/>
+        <mapping class="org.sjlee.pos.delivery.model.Order"/>
+        <mapping class="org.sjlee.pos.delivery.model.Category"/>
+        <mapping class="org.sjlee.pos.delivery.model.Source"/>
+        <mapping class="org.sjlee.pos.delivery.model.Customer"/>
+        <mapping class="org.sjlee.pos.delivery.model.Menu"/>
     </session-factory>
 </hibernate-configuration>

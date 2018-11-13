@@ -1,4 +1,4 @@
-package pos_delivery.model;
+package org.sjlee.pos.delivery.model;
 
 /**
  * Category Enum Represents Categories of Items

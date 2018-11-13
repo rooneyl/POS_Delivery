@@ -1,6 +1,6 @@
-package pos_delivery.model;
+package org.sjlee.pos.delivery.model;
 
-import pos_delivery.module.PrinterService;
+import org.sjlee.pos.delivery.module.PrinterService;
 import javax.persistence.*;
 import java.io.Serializable;
 

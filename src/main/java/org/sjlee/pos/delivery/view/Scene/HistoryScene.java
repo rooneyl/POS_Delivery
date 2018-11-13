@@ -1,4 +1,4 @@
-package pos_delivery.view.Scene;
+package org.sjlee.pos.delivery.view.Scene;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,14 +11,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import pos_delivery.model.Customer;
-import pos_delivery.model.Order;
-import pos_delivery.model.Source;
-import pos_delivery.module.DataBaseController;
-import pos_delivery.view.Component.CustomerView;
-import pos_delivery.view.Component.OrderView;
-import pos_delivery.view.Layout;
-import pos_delivery.view.Util;
+import org.sjlee.pos.delivery.model.Customer;
+import org.sjlee.pos.delivery.model.Order;
+import org.sjlee.pos.delivery.model.Source;
+import org.sjlee.pos.delivery.module.DataBaseController;
+import org.sjlee.pos.delivery.view.Component.CustomerView;
+import org.sjlee.pos.delivery.view.Component.OrderView;
+import org.sjlee.pos.delivery.view.Layout;
+import org.sjlee.pos.delivery.view.Util;
 
 import java.sql.Date;
 import java.time.LocalDate;

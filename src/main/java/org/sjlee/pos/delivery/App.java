@@ -1,4 +1,4 @@
-package pos_delivery;
+package org.sjlee.pos.delivery;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -10,13 +10,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import pos_delivery.model.Source;
-import pos_delivery.module.Configurator;
-import pos_delivery.module.DataBaseController;
-import pos_delivery.module.OrderPlacer;
-import pos_delivery.view.Layout;
-import pos_delivery.view.Scene.*;
-import pos_delivery.view.Util;
+import org.sjlee.pos.delivery.model.Source;
+import org.sjlee.pos.delivery.module.Configurator;
+import org.sjlee.pos.delivery.module.DataBaseController;
+import org.sjlee.pos.delivery.module.OrderPlacer;
+import org.sjlee.pos.delivery.view.Scene.*;
+import org.sjlee.pos.delivery.view.Layout;
+import org.sjlee.pos.delivery.view.Scene.*;
+import org.sjlee.pos.delivery.view.Util;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
